@@ -426,7 +426,7 @@ with tab2:
         final_pc_display["Achieved"] = final_pc_display["Achieved"].astype(int)
         final_pc_display["Remaining"] = final_pc_display["Remaining"].apply(format_indian)
         final_pc_display["% Achieved"] = final_pc_display["% Achieved"].astype(str) + "%"
-        final_pc_display = final_pc_display.astype(str)
+        final_pc_display = final_pc_display.astype(str)  # ← ADD THIS LINE
         st.subheader(f"🎯 PC Hit Report | {selected_gamma_tl} | Gamma | {pc_time_text}")
         st.dataframe(final_pc_display)
         
