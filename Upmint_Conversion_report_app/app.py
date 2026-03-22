@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
+import pytz
 import numpy as np
 
 st.set_page_config(layout="wide")
@@ -113,7 +114,8 @@ with tab1:
             "Select Report Type",
             ["Yesterday Overall", "Hourly Report"]
         )
-        report_time_text = f"📅 Yesterday Overall ({selected_date})" if report_type == "Yesterday Overall" else f"⏱️ {datetime.now().strftime('%I %p')} Report"
+        current_time = datetime.now(pytz.timezone('Asia/Kolkata'))
+        report_time_text = f"📅 Yesterday Overall ({selected_date})" if report_type == "Yesterday Overall" else f"⏱️ {current_time.strftime('%I %p')} Report"
 
         df_sales = sales_df[
             (sales_df["Dialed_Date"].dt.date == selected_date) &
@@ -326,7 +328,8 @@ with tab2:
             "PC Report Type",
             ["Yesterday Overall", "Hourly Report"]
         )
-        pc_time_text = f"📅 Yesterday Overall ({selected_pc_date})" if pc_report_type == "Yesterday Overall" else f"⏱️ {datetime.now().strftime('%I %p')} Report"
+        current_time = datetime.now(pytz.timezone('Asia/Kolkata'))
+        pc_time_text = f"📅 Yesterday Overall ({selected_pc_date})" if pc_report_type == "Yesterday Overall" else f"⏱️ {current_time.strftime('%I %p')} Report"
         
         # Debug expander (optional)
         st.sidebar.markdown("---")
