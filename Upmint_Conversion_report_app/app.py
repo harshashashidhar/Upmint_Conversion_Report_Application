@@ -235,7 +235,7 @@ with tab1:
         display_df["Target"] = display_df["Target"].apply(format_indian)
         display_df["Remaining"] = display_df["Remaining"].apply(format_indian)
         display_df["% Achieved"] = display_df["% Achieved"].astype(str) + "%"
-
+        display_df = display_df.astype(str)
         st.subheader(f"📋 {selected_tl} | {selected_process} | {report_time_text}")
         st.dataframe(display_df)
 
@@ -426,7 +426,7 @@ with tab2:
         final_pc_display["Achieved"] = final_pc_display["Achieved"].astype(int)
         final_pc_display["Remaining"] = final_pc_display["Remaining"].apply(format_indian)
         final_pc_display["% Achieved"] = final_pc_display["% Achieved"].astype(str) + "%"
-        
+        final_pc_display = final_pc_display.astype(str)
         st.subheader(f"🎯 PC Hit Report | {selected_gamma_tl} | Gamma | {pc_time_text}")
         st.dataframe(final_pc_display)
         
