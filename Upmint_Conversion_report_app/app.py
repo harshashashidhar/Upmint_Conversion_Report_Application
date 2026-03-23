@@ -488,3 +488,10 @@ with tab2:
 
     else:
         st.info("👆 Upload Telecalling Disbursal Dump to see PC Hit Report")
+
+st.markdown("---")
+st.markdown(
+    "<p style='text-align: center; color: #1F4E79; font-weight: bold; font-size: 18px;'>"
+    "Team Jayesh K V</p>", 
+    unsafe_allow_html=True
+)
